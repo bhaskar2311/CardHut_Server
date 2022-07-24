@@ -24,8 +24,7 @@ public class Transaction {
 	private int emiScheme;	
 	private LocalDate orderDate;
 	private double paidAmount;
-	private int productId; //FK
-//	private String productName;
+
 	
 	private double balanceAmount;
 	
@@ -51,8 +50,6 @@ public class Transaction {
 		this.emiScheme = emiScheme;
 		this.orderDate = orderDate;
 		this.paidAmount = paidAmount;
-		this.productId = productId;
-//		this.productName = productName;
 		this.balanceAmount = balanceAmount;
 	}
 	
@@ -98,21 +95,6 @@ public class Transaction {
 		this.paidAmount = paidAmount;
 	}
 
-	public int getProductId() {
-		return productId;
-	}
-
-	public void setProductId(int productId) {
-		this.productId = productId;
-	}
-
-//	public String getProductName() {
-//		return productName;
-//	}
-//
-//	public void setProductName(String productName) {
-//		this.productName = productName;
-//	}
 
 	public double getBalanceAmount() {
 		return balanceAmount;

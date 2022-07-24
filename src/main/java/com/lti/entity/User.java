@@ -10,67 +10,57 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="USER")
+@Table(name = "USERS")
 public class User {
-	
-	
+
 	@Id
-	@SequenceGenerator(name="user_seq",initialValue = 200,allocationSize = 1)
+	@SequenceGenerator(name = "user_seq", initialValue = 200, allocationSize = 1)
 	@GeneratedValue(generator = "user_seq", strategy = GenerationType.SEQUENCE)
 	private int userId;
-	
+
 	private String userName;
-	
+
 	private String userPhone;
-	
-	private String userEmail;
-	
-	private String userUsername;
-	
+
 	private String userPassword;
-	
+
 	private String userAddress;
-	
-	private CardType cardType;
-	
+
+	private String cardType;
+
 	private String userBank;
-	
+
 	private String userAccountNo;
-	
+
 	private String userIfsc;
-	
-//	private String userCardActivation;
-	
-	
-	//Mappings
-	@OneToOne(mappedBy = "user",cascade = CascadeType.ALL)
+
+	// Mappings
+	@OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
 	EmiCard emiCard;
+
+	// Parameterized Constructors
 	
-	
-	
-	//Parameterized Constructors
-	
-	public User(int userId, String userName, String userPhone, String userEmail, String userUsername,
-			String userPassword, String userAddress, CardType cardType, String userBank, String userAccountNo,
-			String userIfsc) {
-//		super();
+	public User() {
+		// TODO Auto-generated constructor stub
+	}
+	public User(int userId, String userName, String userPhone, String userPassword, String userAddress,
+			String cardType, String userBank, String userAccountNo, String userIfsc) {
+
 		this.userId = userId;
 		this.userName = userName;
 		this.userPhone = userPhone;
-		this.userEmail = userEmail;
-		this.userUsername = userUsername;
+
 		this.userPassword = userPassword;
 		this.userAddress = userAddress;
 		this.cardType = cardType;
 		this.userBank = userBank;
 		this.userAccountNo = userAccountNo;
 		this.userIfsc = userIfsc;
-//		this.userCardActivation = userCardActivation;
+
 	}
 
-	
-	//Getters and Setters
-	
+	// Getters and Setters
+
 	public int getUserId() {
 		return userId;
 	}
@@ -95,22 +85,6 @@ public class User {
 		this.userPhone = userPhone;
 	}
 
-	public String getUserEmail() {
-		return userEmail;
-	}
-
-	public void setUserEmail(String userEmail) {
-		this.userEmail = userEmail;
-	}
-
-	public String getUserUsername() {
-		return userUsername;
-	}
-
-	public void setUserUsername(String userUsername) {
-		this.userUsername = userUsername;
-	}
-
 	public String getUserPassword() {
 		return userPassword;
 	}
@@ -127,11 +101,11 @@ public class User {
 		this.userAddress = userAddress;
 	}
 
-	public CardType getCardType() {
+	public String getCardType() {
 		return cardType;
 	}
 
-	public void setCardType(CardType cardType) {
+	public void setCardType(String cardType) {
 		this.cardType = cardType;
 	}
 
@@ -158,24 +132,5 @@ public class User {
 	public void setUserIfsc(String userIfsc) {
 		this.userIfsc = userIfsc;
 	}
-
-//	public String getUserCardActivation() {
-//		return userCardActivation;
-//	}
-//
-//	public void setUserCardActivation(String userCardActivation) {
-//		this.userCardActivation = userCardActivation;
-//	}
-//	
-//	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
 }
