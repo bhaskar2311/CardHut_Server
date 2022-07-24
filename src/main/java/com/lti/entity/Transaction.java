@@ -17,15 +17,14 @@ import javax.persistence.Table;
 public class Transaction {
 
 	@Id
-	@SequenceGenerator(name="transaction_seq",initialValue = 5001,allocationSize = 1)
-	@GeneratedValue(generator = "transaction_seq", strategy = GenerationType.SEQUENCE)
+	@SequenceGenerator(name="transaction_sequence",initialValue = 5001,allocationSize = 1)
+	@GeneratedValue(generator = "transaction_sequence", strategy = GenerationType.SEQUENCE)
 	private int transactionId;
 	private int userId;
 	private int emiScheme;	
 	private LocalDate orderDate;
 	private double paidAmount;
-	private int productId; //FK
-//	private String productName;
+	//	private String productName;
 	
 	private double balanceAmount;
 	
@@ -44,14 +43,13 @@ public class Transaction {
 	//Parameterized Constructors
 	
 	public Transaction(int transactionId, int userId, int emiScheme, LocalDate orderDate, double paidAmount,
-			int productId, double balanceAmount) {
+			 double balanceAmount) {
 		super();
 		this.transactionId = transactionId;
 		this.userId = userId;
 		this.emiScheme = emiScheme;
 		this.orderDate = orderDate;
 		this.paidAmount = paidAmount;
-		this.productId = productId;
 //		this.productName = productName;
 		this.balanceAmount = balanceAmount;
 	}
@@ -97,14 +95,15 @@ public class Transaction {
 	public void setPaidAmount(double paidAmount) {
 		this.paidAmount = paidAmount;
 	}
-
-	public int getProductId() {
-		return productId;
-	}
-
-	public void setProductId(int productId) {
-		this.productId = productId;
-	}
+	
+//
+//	public int getProductId() {
+//		return productId;
+//	}
+//
+//	public void setProductId(int productId) {
+//		this.productId = productId;
+//	}
 
 //	public String getProductName() {
 //		return productName;
@@ -113,6 +112,22 @@ public class Transaction {
 //	public void setProductName(String productName) {
 //		this.productName = productName;
 //	}
+
+	public EmiCard getEmiCard() {
+		return emiCard;
+	}
+
+	public void setEmiCard(EmiCard emiCard) {
+		this.emiCard = emiCard;
+	}
+
+	public Product getProduct() {
+		return product;
+	}
+
+	public void setProduct(Product product) {
+		this.product = product;
+	}
 
 	public double getBalanceAmount() {
 		return balanceAmount;

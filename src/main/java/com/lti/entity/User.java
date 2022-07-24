@@ -10,7 +10,7 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="USER")
+@Table(name="USER_Table")
 public class User {
 	
 	
@@ -158,6 +158,17 @@ public class User {
 	public void setUserIfsc(String userIfsc) {
 		this.userIfsc = userIfsc;
 	}
+
+
+	public EmiCard getEmiCard() {
+		return emiCard;
+	}
+
+
+	public void setEmiCard(EmiCard emiCard) {
+		this.emiCard = emiCard;
+	}
+	
 
 //	public String getUserCardActivation() {
 //		return userCardActivation;

@@ -19,14 +19,14 @@ import javax.persistence.Table;
 public class EmiCard {
 	
 	@Id
-	@SequenceGenerator(name="transaction_seq",initialValue = 2001,allocationSize = 1)
-	@GeneratedValue(generator = "transaction_seq", strategy = GenerationType.SEQUENCE)
+	@SequenceGenerator(name="card_seq",initialValue = 2001,allocationSize = 1)
+	@GeneratedValue(generator = "card_seq", strategy = GenerationType.SEQUENCE)
 	private int emiCardNo;
 	private String emiValidity;
 	private CardType emiCardType;
 	private double emiCardLimit;
 	private double emiCardBalance;
-	private int userId; //FK
+	//private int userId; //FK
 	private boolean activated;
 	
 	
@@ -71,12 +71,12 @@ public class EmiCard {
 	public void setEmiCardBalance(double emiCardBalance) {
 		this.emiCardBalance = emiCardBalance;
 	}
-	public int getUserId() {
-		return userId;
-	}
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
+//	public int getUserId() {
+//		return userId;
+//	}
+//	public void setUserId(int userId) {
+//		this.userId = userId;
+//	}
 	public boolean isActivated() {
 		return activated;
 	}
@@ -87,15 +87,26 @@ public class EmiCard {
 	//Para Constructors
 	
 	public EmiCard(int emiCardNo, String emiValidity, CardType emiCardType, double emiCardLimit,
-			double emiCardBalance, int userId, boolean activated) {
+			double emiCardBalance,  boolean activated) {
 		super();
 		this.emiCardNo = emiCardNo;
 		this.emiValidity = emiValidity;
 		this.emiCardType = emiCardType;
 		this.emiCardLimit = emiCardLimit;
 		this.emiCardBalance = emiCardBalance;
-		this.userId = userId;
 		this.activated = activated;
+	}
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
+	public List<Transaction> getTransactions() {
+		return transactions;
+	}
+	public void setTransactions(List<Transaction> transactions) {
+		this.transactions = transactions;
 	}
 	
 	
