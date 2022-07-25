@@ -11,7 +11,6 @@ import javax.persistence.Table;
 @Table(name = "ADMIN_LOGIN")
 public class Admin {
 	
-	
 	@Id
 	@SequenceGenerator(name="admin_seq",initialValue = 1,allocationSize = 1)
 	@GeneratedValue(generator = "admin_seq", strategy = GenerationType.SEQUENCE)
@@ -39,10 +38,12 @@ public class Admin {
 		this.adminPassword = adminPassword;
 	}
 	
+	public Admin() {
+
+	}
 	
 	//Parameterized Constructors
 	public Admin(int adminId, String adminUsername, String adminPassword) {
-//		super();
 		this.adminId = adminId;
 		this.adminUsername = adminUsername;
 		this.adminPassword = adminPassword;

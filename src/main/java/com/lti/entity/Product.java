@@ -15,16 +15,12 @@ import javax.persistence.Table;
 @Table(name="PRODUCT")
 public class Product {
 	@Id
-	@SequenceGenerator(name="transaction_seq",initialValue = 1001,allocationSize = 1)
-	@GeneratedValue(generator = "transaction_seq", strategy = GenerationType.SEQUENCE)
+	@SequenceGenerator(name="product_seq",initialValue = 1001,allocationSize = 1)
+	@GeneratedValue(generator = "product_seq", strategy = GenerationType.SEQUENCE)
 	private int productId;
-	
 	private String productName;
-	
 	private double productCost;
-	
 	private String productImage;
-	
 	private String productDescription;
 	
 	//Mappings
@@ -71,23 +67,29 @@ public class Product {
 	public void setProductDescription(String productDescription) {
 		this.productDescription = productDescription;
 	}
+	
+	public List<Transaction> getTransactions() {
+		return transactions;
+	}
 
+	public void setTransactions(List<Transaction> transactions) {
+		this.transactions = transactions;
+	}
+
+	public Product() {
+		
+	}
 	
+	//Parameterized Constructor
 	
-	//Para Constructor
 	public Product(int productId, String productName, double productCost, String productImage,
-			String productDescription) {
-//		super();
+			String productDescription, List<Transaction> transactions) {
 		this.productId = productId;
 		this.productName = productName;
 		this.productCost = productCost;
 		this.productImage = productImage;
 		this.productDescription = productDescription;
+		this.transactions = transactions;
 	}
-	
-	
-	
-	
-	
-	
+
 }

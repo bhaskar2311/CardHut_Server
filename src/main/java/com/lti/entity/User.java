@@ -10,7 +10,7 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="USER")
+@Table(name="USER_Table")
 public class User {
 	
 	
@@ -18,42 +18,30 @@ public class User {
 	@SequenceGenerator(name="user_seq",initialValue = 200,allocationSize = 1)
 	@GeneratedValue(generator = "user_seq", strategy = GenerationType.SEQUENCE)
 	private int userId;
-	
 	private String userName;
-	
 	private String userPhone;
-	
 	private String userEmail;
-	
 	private String userUsername;
-	
 	private String userPassword;
-	
 	private String userAddress;
-	
 	private CardType cardType;
-	
 	private String userBank;
-	
 	private String userAccountNo;
-	
 	private String userIfsc;
-	
-//	private String userCardActivation;
-	
 	
 	//Mappings
 	@OneToOne(mappedBy = "user",cascade = CascadeType.ALL)
 	EmiCard emiCard;
 	
-	
+	public User() {
+		
+	}
 	
 	//Parameterized Constructors
 	
 	public User(int userId, String userName, String userPhone, String userEmail, String userUsername,
 			String userPassword, String userAddress, CardType cardType, String userBank, String userAccountNo,
 			String userIfsc) {
-//		super();
 		this.userId = userId;
 		this.userName = userName;
 		this.userPhone = userPhone;
@@ -65,10 +53,8 @@ public class User {
 		this.userBank = userBank;
 		this.userAccountNo = userAccountNo;
 		this.userIfsc = userIfsc;
-//		this.userCardActivation = userCardActivation;
 	}
 
-	
 	//Getters and Setters
 	
 	public int getUserId() {
@@ -158,24 +144,5 @@ public class User {
 	public void setUserIfsc(String userIfsc) {
 		this.userIfsc = userIfsc;
 	}
-
-//	public String getUserCardActivation() {
-//		return userCardActivation;
-//	}
-//
-//	public void setUserCardActivation(String userCardActivation) {
-//		this.userCardActivation = userCardActivation;
-//	}
-//	
-//	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
 }
