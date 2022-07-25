@@ -19,8 +19,8 @@ import javax.persistence.Table;
 public class EmiCard {
 	
 	@Id
-	@SequenceGenerator(name="emiCard_seq",initialValue = 2001,allocationSize = 1)
-	@GeneratedValue(generator = "emiCard_seq", strategy = GenerationType.SEQUENCE)
+	@SequenceGenerator(name="emi_seq",initialValue = 2001,allocationSize = 1)
+	@GeneratedValue(generator = "emi_seq", strategy = GenerationType.SEQUENCE)
 	private int emiCardNo;
 	private String emiValidity;
 	private CardType emiCardType;

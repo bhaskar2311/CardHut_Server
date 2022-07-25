@@ -13,12 +13,16 @@ import javax.persistence.Table;
 @Table(name = "USERS")
 public class User {
 
+
 	@Id
 	@SequenceGenerator(name = "user_seq", initialValue = 200, allocationSize = 1)
 	@GeneratedValue(generator = "user_seq", strategy = GenerationType.SEQUENCE)
 	private int userId;
 
-	private String userName;
+	private String name;
+	
+	private String username;
+	
 
 	private String userPhone;
 
@@ -40,24 +44,26 @@ public class User {
 
 	// Parameterized Constructors
 	
-	public User() {
-		// TODO Auto-generated constructor stub
-	}
-	public User(int userId, String userName, String userPhone, String userPassword, String userAddress,
-			String cardType, String userBank, String userAccountNo, String userIfsc) {
-
+	public User(int userId, String name, String username, String userPhone, String userPassword, String userAddress,
+			String cardType, String userBank, String userAccountNo, String userIfsc, EmiCard emiCard) {
+		super();
 		this.userId = userId;
-		this.userName = userName;
+		this.name = name;
+		this.username = username;
 		this.userPhone = userPhone;
-
 		this.userPassword = userPassword;
 		this.userAddress = userAddress;
 		this.cardType = cardType;
 		this.userBank = userBank;
 		this.userAccountNo = userAccountNo;
 		this.userIfsc = userIfsc;
-
+		this.emiCard = emiCard;
 	}
+	
+	public User() {
+		// TODO Auto-generated constructor stub
+	}
+
 
 	// Getters and Setters
 
@@ -67,14 +73,6 @@ public class User {
 
 	public void setUserId(int userId) {
 		this.userId = userId;
-	}
-
-	public String getUserName() {
-		return userName;
-	}
-
-	public void setUserName(String userName) {
-		this.userName = userName;
 	}
 
 	public String getUserPhone() {
@@ -131,6 +129,36 @@ public class User {
 
 	public void setUserIfsc(String userIfsc) {
 		this.userIfsc = userIfsc;
+	}
+
+
+	public String getName() {
+		return name;
+	}
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
+	public String getUsername() {
+		return username;
+	}
+
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+
+	public EmiCard getEmiCard() {
+		return emiCard;
+	}
+
+
+	public void setEmiCard(EmiCard emiCard) {
+		this.emiCard = emiCard;
 	}
 
 }

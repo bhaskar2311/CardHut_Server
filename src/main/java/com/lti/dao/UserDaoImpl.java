@@ -22,8 +22,18 @@ public class UserDaoImpl implements UserDao {
 	@Transactional
 	public User addOrUpdateUser(User user) {
 		// TODO Auto-generated method stub
+		User persistedUser=null;
 		
-		return em.merge(user);
+		try {
+			persistedUser=em.merge(user);
+			return persistedUser;
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			return persistedUser;
+		}
+		
+		
 	}
 
 	public User getUserById(int userId) {
