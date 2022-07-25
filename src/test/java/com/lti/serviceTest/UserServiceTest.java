@@ -38,14 +38,14 @@ public class UserServiceTest {
 		user.setUserAccountNo("789456478945");
 		user.setUserIfsc("HDFC1234");
 
-		System.out.println(userService.addOrUpdateUser(user));
+		System.out.println(userService.signUp(user));
 
 	}
 	
 	
 	@Test
 	public void getUserById() {
-		assertNotNull(userService.getUserById(220));
+		assertNotNull(userService.findUser(220));
 
 	}
 	
@@ -58,7 +58,7 @@ public class UserServiceTest {
 	
 	@Test
 	public void login() {
-		System.out.println(userService.login(202, "john123"));
+		System.out.println(userService.userLogin(202, "john123"));
 		
 	}
 	
