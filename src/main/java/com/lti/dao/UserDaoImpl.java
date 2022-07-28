@@ -71,7 +71,7 @@ public class UserDaoImpl implements UserDao {
 			user=query.getSingleResult();
 		}
 		catch(Exception e){
-			System.out.println("dnbbdhv ");
+			
 			return false;
 			
 		}
