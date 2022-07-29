@@ -5,7 +5,6 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 
 import com.lti.dao.AdminDao;
@@ -34,6 +33,15 @@ public class AdminDaoTest {
 
 	@Test
 	public void activateCardTest() {
-		assertTrue(dao.activateCard(2002));
+		assertTrue(dao.activateCard(2001));
+	}
+	
+	@Test
+	public void adminLoginTest() {	
+//		assertTrue("Invalid credentials", dao.login(2, "Dhw@1234"));
+//		System.out.println("Login Successful");
+		
+		boolean b = dao.adminLogin("Admin", "Admin@123");
+        assertTrue(b);
 	}
 }

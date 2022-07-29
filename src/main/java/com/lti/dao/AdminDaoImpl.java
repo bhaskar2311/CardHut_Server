@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import com.lti.entity.Admin;
+import com.lti.entity.User;
 
 @Repository
 //@Component
@@ -47,6 +48,25 @@ public class AdminDaoImpl implements AdminDao {
 //			return true;
 //		else
 //			return false;
+	}
+
+	public boolean adminLogin(String adminUsername, String adminPassword) {
+		String jpql = "select a from Admin a where a.adminUsername=:aname and a.adminPassword=:pwd";
+		TypedQuery<Admin> query = em.createQuery(jpql, Admin.class);
+		query.setParameter("aname", adminUsername);
+		query.setParameter("pwd", adminPassword);
+//		User user = query.getSingleResult();
+//		return user!=null?true:false;
+		Admin admin = query.getResultList()
+				.stream().findFirst().orElse(null);
+		return admin!=null?true:false;
+//		try {
+//			User user = query.getSingleResult();
+//		}
+//		catch(Exception e){
+//			return false;
+//		}
+//		return true;
 	}
 
 }
