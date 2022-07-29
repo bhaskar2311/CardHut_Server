@@ -19,8 +19,8 @@ import javax.persistence.Table;
 public class EmiCard {
 	
 	@Id
-	@SequenceGenerator(name="transaction_seq",initialValue = 2001,allocationSize = 1)
-	@GeneratedValue(generator = "transaction_seq", strategy = GenerationType.SEQUENCE)
+	@SequenceGenerator(name="emi_seq",initialValue = 2001,allocationSize = 1)
+	@GeneratedValue(generator = "emi_seq", strategy = GenerationType.SEQUENCE)
 	private int emiCardNo;
 	private String emiValidity;
 	private CardType emiCardType;
@@ -32,7 +32,7 @@ public class EmiCard {
 	
 	//Mappings
 	@OneToOne
-	@JoinColumn(name="userId")
+	//@JoinColumn(name="userId")
 	User user;
 	
 	

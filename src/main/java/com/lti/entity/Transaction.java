@@ -26,24 +26,48 @@ public class Transaction {
 	private double paidAmount;
 	private int productId; //FK
 //	private String productName;
-	
 	private double balanceAmount;
+	private int cardNo;
 	
 	
 	
+	public int getCardNo() {
+		return cardNo;
+	}
+
+	public void setCardNo(int cardNo) {
+		this.cardNo = cardNo;
+	}
+
 	//Mappings
 	@ManyToOne
 	@JoinColumn(name="emiCardNo")
 	EmiCard emiCard;
 	
 	@ManyToOne
-	@JoinColumn(name="productId")
+	//@JoinColumn(name="productId")
 	Product product;
 	
 	
 	//Parameterized Constructors
 	
-	public Transaction(int transactionId, int userId, int emiScheme, LocalDate orderDate, double paidAmount,
+	public EmiCard getEmiCard() {
+		return emiCard;
+	}
+
+	public void setEmiCard(EmiCard emiCard) {
+		this.emiCard = emiCard;
+	}
+
+	public Product getProduct() {
+		return product;
+	}
+
+	public void setProduct(Product product) {
+		this.product = product;
+	}
+
+	public Transaction(int transactionId,int userId, int emiScheme, LocalDate orderDate, double paidAmount,
 			int productId, double balanceAmount) {
 		super();
 		this.transactionId = transactionId;
@@ -57,6 +81,10 @@ public class Transaction {
 	}
 	
 	//Getters and Setters
+
+	public Transaction() {
+		// TODO Auto-generated constructor stub
+	}
 
 	public int getTransactionId() {
 		return transactionId;

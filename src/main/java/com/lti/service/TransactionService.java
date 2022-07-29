@@ -1,15 +1,13 @@
-package com.lti.dao;
+package com.lti.service;
 
 import java.util.List;
 
 import com.lti.entity.Transaction;
 
-public interface TransactionDao {
-	
-	Transaction addTransactionOfProduct(Transaction transaction);
+public interface TransactionService {
+	String addTransactionOfProduct(Transaction transaction);
 	List<Transaction> viewTransactionByCardNo(int cardNo);
 	List<Transaction> viewTransactionsByProductId(int productId);
-	
 	
 
 }
