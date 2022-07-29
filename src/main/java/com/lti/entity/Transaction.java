@@ -3,6 +3,7 @@ package com.lti.entity;
 import java.time.LocalDate;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -39,6 +40,9 @@ public class Transaction {
 	@JoinColumn(name="productId")
 	Product product;
 	
+	public Transaction() {
+		// TODO Auto-generated constructor stub
+	}
 	
 	//Parameterized Constructors
 	

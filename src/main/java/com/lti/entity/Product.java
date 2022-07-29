@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -28,7 +29,7 @@ public class Product {
 	private String productDescription;
 	
 	//Mappings
-	@OneToMany(mappedBy = "product",cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "product",fetch=FetchType.LAZY, cascade = CascadeType.ALL)
 	List<Transaction> transactions;
 	
 	//Getters and Setters
@@ -85,17 +86,29 @@ public class Product {
 		// TODO Auto-generated constructor stub
 	}
 	
-	//Para Constructor
+	
+	
 	public Product(int productId, String productName, double productCost, String productImage,
-			String productDescription) {
-//		super();
+			String productDescription, List<Transaction> transactions) {
+		super();
 		this.productId = productId;
 		this.productName = productName;
 		this.productCost = productCost;
 		this.productImage = productImage;
 		this.productDescription = productDescription;
+		this.transactions = transactions;
 	}
-	
+
+	//Para Constructor
+		public Product(int productId, String productName, double productCost, 
+				String productDescription) {
+//			super();
+			this.productId = productId;
+			this.productName = productName;
+			this.productCost = productCost;
+			//this.productImage = productImage;
+			this.productDescription = productDescription;
+		}
 	
 	
 	

@@ -28,7 +28,12 @@ public class ProductDaoImpl implements ProductDao {
 	}
 
 	public List<Product> viewAllProducts() {
-		return em.createQuery("select p from Product p", Product.class).getResultList();
+		String query = "SELECT NEW Product(i.productId, i.productName, i.productCost, i.productDescription) FROM Product i ";
+		TypedQuery<Product> typedQuery = em.createQuery(query , Product.class);
+		List<Product> results = typedQuery.getResultList();
+		
+		//return em.createQuery("select p from Product p", Product.class).getResultList();
+		return results;
 	}
 
 }

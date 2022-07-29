@@ -48,7 +48,7 @@ public class ProductDaoTest {
 		List<Product> products=dao.viewAllProducts();
 		assertFalse(products.isEmpty());
 		for(Product p:products) {
-			System.out.println(p.getProductName());
+			System.out.println(p.getProductId() + " " +p.getProductName());
 		}
 	}
 
